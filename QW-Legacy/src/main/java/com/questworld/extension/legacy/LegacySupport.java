@@ -5,7 +5,9 @@ import com.questworld.util.Reflect;
 
 public class LegacySupport extends QuestExtension {
 	public LegacySupport() {
-		Reflect.addAdapter(new Adapter_1_8_8());
+		Reflect.addAdapter(new Adapter1_8_R1());
+		Reflect.addAdapter(new Adapter1_8_R2());
+		Reflect.addAdapter(new Adapter1_11_R1());
+		Reflect.addAdapter(new Adapter1_12_R1());
 	}
-	
 }

@@ -9,9 +9,24 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
-			<artifactId>Legacy1_8_8</artifactId>
+			<artifactId>1_8_R1</artifactId>
 			<groupId>com.questworld.legacy</groupId>
-			<version>[0.0.1-SNAPSHOT,)</version>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<artifactId>1_8_R2</artifactId>
+			<groupId>com.questworld.legacy</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<artifactId>1_11_R1</artifactId>
+			<groupId>com.questworld.legacy</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<artifactId>1_12_R1</artifactId>
+			<groupId>com.questworld.legacy</groupId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -28,6 +43,16 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/maven/**</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
