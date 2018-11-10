@@ -19,6 +19,11 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<artifactId>1_9_R1</artifactId>
+			<groupId>com.questworld.legacy</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<artifactId>1_11_R1</artifactId>
 			<groupId>com.questworld.legacy</groupId>
 			<version>0.0.1-SNAPSHOT</version>

@@ -57,6 +57,7 @@
 	<modules>
 		<module>1_8_R1</module>
 		<module>1_8_R2</module>
+		<module>1_9_R1</module>
 		<module>1_11_R1</module>
 		<module>1_12_R1</module>
 		<module>QW-Legacy</module>
