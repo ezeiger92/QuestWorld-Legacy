@@ -9,22 +9,21 @@ import org.bukkit.inventory.meta.SkullMeta;
 import com.questworld.util.PartialAdapter;
 import com.questworld.util.Reflect;
 import com.questworld.util.Text;
+import com.questworld.util.Version;
 
 public class Adapter1_12_R1 extends PartialAdapter {
 
-	@Override
-	protected String forVersion() {
-		return "1_12_R1";
+	public Adapter1_12_R1() {
+		super(Version.ofString("v1_12_r1"));
 	}
 
 	@Override
 	public void makePlayerHead(ItemStack result, OfflinePlayer player) {
-		if(result.getType()	== Material.SKULL_ITEM) {
-			result.setDurability((short) 3);
-			SkullMeta sm = (SkullMeta) result.getItemMeta();
-			sm.setOwningPlayer(player);
-			result.setItemMeta(sm);
-		}
+		result.setType(Material.SKULL_ITEM);
+		result.setDurability((short) 3);
+		SkullMeta sm = (SkullMeta) result.getItemMeta();
+		sm.setOwningPlayer(player);
+		result.setItemMeta(sm);
 	}
 	
 	@Override

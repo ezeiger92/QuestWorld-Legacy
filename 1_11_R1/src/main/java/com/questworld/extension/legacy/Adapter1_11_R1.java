@@ -4,12 +4,12 @@ import org.bukkit.entity.Player;
 
 import com.questworld.util.PartialAdapter;
 import com.questworld.util.Text;
+import com.questworld.util.Version;
 
 public class Adapter1_11_R1 extends PartialAdapter {
 
-	@Override
-	protected String forVersion() {
-		return "1_11_R1";
+	public Adapter1_11_R1() {
+		super(Version.ofString("v1_11_r1"));
 	}
 	
 	@Override

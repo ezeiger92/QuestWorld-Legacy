@@ -7,12 +7,12 @@ import org.bukkit.entity.Player;
 import com.questworld.util.PartialAdapter;
 import com.questworld.util.Reflect;
 import com.questworld.util.Text;
+import com.questworld.util.Version;
 
 public class Adapter1_8_R2 extends PartialAdapter {
-
-	@Override
-	protected String forVersion() {
-		return "1_8_R2";
+	
+	public Adapter1_8_R2() {
+		super(Version.ofString("1_8_R2"));
 	}
 
 	@Override
@@ -36,35 +36,6 @@ public class Adapter1_8_R2 extends PartialAdapter {
 			throw new UnsupportedOperationException("Exception with actionbar", e);
 		}
 	}
-	
-	/*public void sendActionbar112(Player player, String text) {
-		try {
-			Class<?> componentClass = Reflect.NMS("IChatBaseComponent");
-			Class<?> packetClass = Reflect.NMS("PacketPlayOutChat");
-			Class<?> messageClass = Reflect.NMS("ChatMessageType");
-			
-			Object component = Reflect.NMS("ChatComponentText").getConstructor(String.class).newInstance(text);
-
-			for(Object entry : messageClass.getEnumConstants()) {
-				if(entry.toString().equals("GAME_INFO")) {
-					Object playerHandle = player.getClass().getMethod("getHandle").invoke(player);
-					
-					Object connection = playerHandle.getClass().getField("playerConnection").get(playerHandle);
-					
-					Object packet = packetClass.getConstructor(componentClass, messageClass).newInstance(component, entry);
-					
-					connection.getClass().getMethod("sendPacket", packetClass).invoke(connection, packet);
-					
-					return;
-				}
-			}
-			
-			throw new IllegalStateException("Missing enum constant");
-			
-		} catch (Exception e) {
-			throw new UnsupportedOperationException("Exception with actionbar", e);
-		}
-	}*/
 	
 	@Override
 	public void sendTitle(Player player, String title, String subtitle, int fadeIn, int stay, int fadeOut) {

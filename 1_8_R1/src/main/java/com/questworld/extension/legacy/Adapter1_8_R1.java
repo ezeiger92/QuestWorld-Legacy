@@ -13,31 +13,30 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import com.questworld.util.Reflect;
 import com.questworld.util.Text;
+import com.questworld.util.Version;
 import com.questworld.util.VersionAdapter;
 import com.questworld.util.json.JsonBlob;
 
 public class Adapter1_8_R1 extends VersionAdapter {
 
-	@Override
-	protected String forVersion() {
-		return "v1_8_R1";
+	public Adapter1_8_R1() {
+		super(Version.ofString("v1_8_R1"));
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public void makeSpawnEgg(ItemStack result, EntityType mob) {
-		if(result.getType() == Material.MONSTER_EGG)
-			result.setDurability(mob.getTypeId());
+		result.setType(Material.MONSTER_EGG);
+		result.setDurability(mob.getTypeId());
 	}
 
 	@Override
 	public void makePlayerHead(ItemStack result, OfflinePlayer player) {
-		if(result.getType()	== Material.SKULL_ITEM) {
-			result.setDurability((short) 3);
-			SkullMeta sm = (SkullMeta) result.getItemMeta();
-			sm.setOwner(player.getName());
-			result.setItemMeta(sm);
-		}
+		result.setType(Material.SKULL_ITEM);
+		result.setDurability((short) 3);
+		SkullMeta sm = (SkullMeta) result.getItemMeta();
+		sm.setOwner(player.getName());
+		result.setItemMeta(sm);
 	}
 
 	@Override
@@ -128,5 +127,10 @@ public class Adapter1_8_R1 extends VersionAdapter {
 		}
 		
 		return;
+	}
+	
+	@Override
+	public void setItemDamage(ItemStack result, int damage) {
+		result.setDurability((short) damage);
 	}
 }
